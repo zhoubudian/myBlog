@@ -37,5 +37,5 @@ jobs:
                   username: 'root'
                   password: ${{ secrets.REMOTE_PASS }}
                   port: 22
-                  source: 'dist/'
+                  source: 'blog/'
                   target: ${{ secrets.REMOTE_TARGET }}
