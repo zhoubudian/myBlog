@@ -77,7 +77,8 @@ typings/
 
 # Next.js build output
 .next
-.zip
+*.zip
+blog
 
 # Nuxt.js build / generate output
 .nuxt
