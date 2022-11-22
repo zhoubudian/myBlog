@@ -13,12 +13,12 @@ FROM node:16-alpine as builder
 WORKDIR /client
 
 ADD package.json /client/
+RUN npm install -g npm@9.1.2
 # 如何将项目跑起来
 RUN npm install
 # RUN yarn add pnpm
 # 解决
 RUN npm rebuild node-sass
-
 
 ADD . /client/
 
@@ -34,5 +34,5 @@ RUN npm run build
 FROM nginx:alpine
 
 # 将构建产物移至 nginx 中
-COPY --from=builder client/dist/ /usr/share/nginx/html/
+COPY --from=builder client/blog/ /usr/share/nginx/html/
 COPY ./deploy_conf/conf.d /etc/nginx/conf.d
